@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{%block body%}
+<div class="container ">
+<div class="row my-3">
+<div class="col-sm-8 offset-sm-2 shadow p-5">
+<form action="{%url 'login_verify_otp'%}" method='post'>
+    {% csrf_token %}
+<div class="form-group">
+    <label for="exampleInputEmail1">OTP</label>
+    <input type="text" name="otp" class="form-control" aria-describedby="emailHelp" placeholder="Enter phone otp ">
+</div>
+
+
+<button type="submit" class="btn btn-primary sm-6">Submit</button>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success" role="alert">
+    {{message}}
+  </div>
+
+{% endfor %}
+
+
+{% endif %}
+
+</form>
+</div>
+</div>
+</div>
+{%endblock body%}

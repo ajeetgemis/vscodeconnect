@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{%block body%}
+<div class="container ">
+<div class="row my-3">
+<div class="col-sm-8 offset-sm-2 shadow p-5">
+<form action="{%url 'signin'%}" method='post'>
+    {% csrf_token %}
+<div class="form-group">
+    <label for="exampleInputEmail1">Phone_Number</label>
+    <input type="text" name="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter phone number">
+</div>
+
+
+<button type="submit" class="btn btn-primary sm-6">Submit</button>
+{%if messages%}
+{%for message in messages%}
+<div class="alert alert-danger" role="alert">
+   {{message}}
+ </div>
+ {% endfor %}
+{% endif %}
+</form>
+</div>
+</div>
+</div>
+{%endblock body%}
